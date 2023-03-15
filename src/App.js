@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { ReactComponentElement } from 'react';
+import { ReactDOM } from 'react';
+import './Result.css';
+import logo from './asset/logo.svg';
+import backIcon from './asset/back button.png';
+import likes from './asset/likes.png';
+import retweets from './asset/retweets.png';
+import search from './asset/search button.png';
+import views from './asset/view count.png';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+function App(){
+    return(
+        <div className='container'>
+            <div className='head'>
+                <div className='header'>
+                  <img className='back-icon' src={backIcon} alt="Back Icon" width={27} height={27}/>
+                  <img className='logo' src={logo} alt="logo" width={143} height={29}/>
+                </div>
+
+                <text>คีย์เวิร์ด</text>
+            </div>
+        </div>
+    );
 }
 
 export default App;

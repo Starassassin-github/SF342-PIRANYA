@@ -1,5 +1,10 @@
 import './Result.css';
-import logo from './assets/logo.svg';
+import logo from './asset/logo.svg';
+import backIcon from './asset/back button.png';
+import likes from './asset/likes.png';
+import retweets from './asset/retweets.png';
+import search from './asset/search button.png';
+import views from './asset/view count.png';
 
 function Result(){
     return(
