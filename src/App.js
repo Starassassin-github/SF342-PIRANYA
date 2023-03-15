@@ -8,6 +8,8 @@ import likes from './asset/likes.png';
 import retweets from './asset/retweets.png';
 import search from './asset/search button.png';
 import views from './asset/view count.png';
+import twitter from './asset/twitter.png';
+
 
 function App(){
     return(
@@ -18,7 +20,9 @@ function App(){
                   <img className='logo' src={logo} alt="logo" width={143} height={29}/>
                 </div>
 
-                <text>คีย์เวิร์ด</text>
+              <div className='header-body'>
+                <text className='keyword-title'>Keyword :</text>
+              </div>
             </div>
         </div>
     );
