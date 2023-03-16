@@ -5,12 +5,12 @@ import './Result.css';
 import logo from './asset/logo.svg';
 import backIcon from './asset/back button.png';
 import fav from './asset/fav (unclick).png';
-import retweet from './asset/retweet (unclick).png';
+import retweet from './asset/retweet.png';
 import search from './asset/search button.png';
-import seen from './asset/seen.png';
+import seen from './asset/seen (unclick).png';
 import twitter from './asset/twitter.png';
 
-function SeenResult(){
+function RetweetResult(){
     return(
         <div className='container'>
             <div className='head'>
@@ -42,4 +42,4 @@ function SeenResult(){
 }
 
 
-export default SeenResult;
+export default RetweetResult;
