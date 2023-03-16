@@ -3,12 +3,17 @@ import { ReactComponentElement } from 'react';
 import { ReactDOM } from 'react';
 import './Result.css';
 import logo from './asset/logo.svg';
+import noImage from './asset/noImage.svg';
 import backIcon from './asset/back button.png';
 import fav from './asset/fav.png';
-import retweet from './asset/retweet (unclick).png';
+import retweets from './asset/retweets (unclick).png';
 import search from './asset/search button.png';
 import seen from './asset/seen (unclick).png';
 import twitter from './asset/twitter.png';
+import { MdAccountCircle } from "react-icons/md";
+import {BsTriangleFill} from "react-icons/bs"
+// npm install react-icons --save
+import { BsFillHeartFill } from "react-icons/bs";
 
 function FavResult(){
     return(
@@ -32,14 +37,42 @@ function FavResult(){
 
 
                 <img className='seen-icon' src={seen} alt="The most views count icon" width={64} height={64}/>
-                <img className='retweet-icon' src={retweet} alt="The most views count icon" width={64} height={64}/>
+                <img className='retweet-icon' src={retweets} alt="The most views count icon" width={64} height={64}/>
                 <img className='fav-icon' src={fav} alt="The most views count icon" width={64} height={64}/>
-              
+                <BsTriangleFill className='triangle' size={30} style={{color: "white"}}/>
               </div>
             </div>
+
+            <div className='tweet-data'>
+                <div className='tweet-data-header'>
+                    <text className='tweet-data-title'>ทวีตที่มีการถูกใจมากที่สุด</text>
+                    {/* ดึงจำนวนครั้งที่เห็นมากที่สุด */}
+                    <text className='tweet-data-bar'>|</text>
+                    <BsFillHeartFill style={{color: "#00acee", opacity:0.7}}/>
+                    <text className='tweet-data-count'>456,789 ครั้ง</text>
+                </div>
+
+                <div className='tweet-data-user'> 
+                    {/* รูปภาพ + ชื่อ + tag user account */}
+                    <div className='user-icon'>
+                        <MdAccountCircle size={64}/>
+                    </div>
+
+                    <div className='user-info'>
+                        <text className='username'>ท่านผู้พัน</text>
+                        <text className='user-tag'>@FRYCHICK_LOVER</text>
+                    </div>
+                </div>
+
+                {/* content twitter */}
+                <div className='tweet-content'>
+                    <text className='tweet-text'>ไก่ตัวแม่โดนทอด</text>
+                    <img className='tweet-image' src={noImage} alt="image" width={600} height={600}/>
+                </div>
+            </div>
+
         </div>
     );
 }
-
 
 export default FavResult;

@@ -106,3 +106,83 @@
     margin-top: 250px;
     margin-left: 23px;
 }
+
+.triangle {
+    margin-top: 332px;
+    margin-left: -222px;
+}
+
+.tweet-data {
+    width: 100%;
+    margin-top: 355px;
+}
+
+.tweet-data-header {
+    width: 100%;
+    margin-top: 400px;
+    margin-left: 165px;
+    margin-bottom: 45px;
+    font-family: prompt;
+    font-size: 14px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.tweet-data-bar {
+    margin-left: 23px;
+    margin-right: 23px;
+    opacity: 0.2;
+}
+.tweet-data-count {
+    margin-left: 13px;
+}
+
+.tweet-data-user {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: row;
+}
+
+.user-icon {
+    margin-left: 165px;
+    opacity: 0.5;
+}
+
+.user-info {
+    margin-left: 23px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items:stretch;
+}
+
+.username {
+    font-family: prompt;
+    font-weight: bold;
+    margin-top: 3px;
+}
+
+.user-tag {
+    font-family: prompt;
+    font-size: 13px;
+    margin-top: 6px;
+    opacity: 0.5;
+}
+
+.tweet-content {
+    margin-left: 250px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.tweet-text {
+    font-family: prompt;
+    margin-bottom: 10px;
+}
+
+.tweet-image {
+    margin-bottom: 100px;
+}
