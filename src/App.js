@@ -21,7 +21,7 @@ function App(){
                 </div>
 
               <div className='header-body'>
-                <text className='keyword-title'>Keyword :</text>
+                <text className='keyword-title'>คีย์เวิร์ด :</text>
               </div>
             </div>
         </div>
