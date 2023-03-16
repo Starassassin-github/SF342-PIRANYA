@@ -5,14 +5,14 @@ import {
   Route
 } from "react-router-dom";
 
-import App2 from './App2';
-import App3 from './App3';
+import Home from './Home';
+
 function App() {
   return (
     <>
       <Router>
         <Switch>
-          <Route exact path='/' Component={App2}/>
+          <Route exact path='/' Component={Home}/>
           {/* <Route exact path='/app3' Component={App3}/> */}
         </Switch>
       </Router>
