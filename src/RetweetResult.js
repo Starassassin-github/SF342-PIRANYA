@@ -2,15 +2,15 @@ import React from 'react';
 import { ReactComponentElement } from 'react';
 import { ReactDOM } from 'react';
 import './Result.css';
-import logo from './asset/logo.svg';
-import noImage from './asset/noImage.svg';
-import backIcon from './asset/back button.png';
-import fav from './asset/fav (unclick).png';
-import retweets from './asset/retweets.png';
-import search from './asset/search button.png';
-import seen from './asset/seen (unclick).png';
-import twitter from './asset/twitter.png';
-import { MdAccountCircle } from "react-icons/md";
+import logo from './assets/logo.svg';
+import noImage from './assets/noImage.svg';
+import backIcon from './assets/back button.png';
+import fav from './assets/fav (unclick).png';
+import retweets from './assets/retweets.png';
+import search from './assets/search button.png';
+import seen from './assets/seen (unclick).png';
+import twitter from './assets/twitter.png';
+import { MdAccountCircle} from "react-icons/md";
 import {BsTriangleFill} from "react-icons/bs"
 // npm install react-icons --save
 // npm i @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core

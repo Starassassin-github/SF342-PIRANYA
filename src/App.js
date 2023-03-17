@@ -2,14 +2,14 @@
 // import { ReactComponentElement } from 'react';
 // import { ReactDOM } from 'react';
 // import './Result.css';
-// import logo from './asset/logo.svg';
-// import noImage from './asset/noImage.svg';
-// import backIcon from './asset/back button.png';
-// import fav from './asset/fav (unclick).png';
-// import retweet from './asset/retweet (unclick).png';
-// import search from './asset/search button.png';
-// import seen from './asset/seen.png';
-// import twitter from './asset/twitter.png';
+// import logo from './assets/logo.svg';
+// import noImage from './assets/noImage.svg';
+// import backIcon from './assets/back button.png';
+// import fav from './assets/fav (unclick).png';
+// import retweet from './assets/retweet (unclick).png';
+// import search from './assets/search button.png';
+// import seen from './assets/seen.png';
+// import twitter from './assets/twitter.png';
 // import { MdAccountCircle } from "react-icons/md";
 // import {BsTriangleFill} from "react-icons/bs"
 // // npm install react-icons --save
@@ -83,30 +83,39 @@
 import React from 'react';
 import { ReactComponentElement } from 'react';
 import { ReactDOM } from 'react';
+import { useState } from 'react';
+import './components/SearchBar';
+import './components/SearchResultsList';
 import './Result.css';
-import logo from './asset/logo.svg';
-import noImage from './asset/noImage.svg';
-import backIcon from './asset/back button.png';
-import fav from './asset/fav (unclick).png';
-import retweets from './asset/retweets.png';
-import search from './asset/search button.png';
-import seen from './asset/seen (unclick).png';
-import twitter from './asset/twitter.png';
+import logo from './assets/logo.svg';
+import noImage from './assets/noImage.svg';
+import backIcon from './assets/back button.png';
+import fav from './assets/fav (unclick).png';
+import retweets from './assets/retweets.png';
+import search from './assets/search button.png';
+import seen from './assets/seen (unclick).png';
+import twitter from './assets/twitter.png';
 import { MdAccountCircle } from "react-icons/md";
-import {BsTriangleFill} from "react-icons/bs"
+import {BsTriangleFill} from "react-icons/bs";
 // npm install react-icons --save
 // npm i @fortawesome/react-fontawesome @fortawesome/free-solid-svg-icons @fortawesome/fontawesome-svg-core
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { FaRetweet } from "react-icons/fa";
 
 
+
 function RetweetResult(){
+    const [results, setResults] = useState([]);
     return(
         <div className='container'>
             <div className='head'>
                 <div className='header'>
-                  <img className='back-icon' src={backIcon} alt="Back Icon" width={27} height={27}/>
-                  <img className='logo' src={logo} alt="logo" width={143} height={29}/>
+                    <img className='back-icon' src={backIcon} alt="Back Icon" width={27} height={27}/>
+                    <img className='logo' src={logo} alt="logo" width={143} height={29}/>
+                    <div className="search-bar">
+                        <SearchBar setResults={setResults}/>
+                        {results && results.length > 0 && <SearchResultsList results={results} />}
+                    </div>
                 </div>
 
             <div className='header-body'>
@@ -167,14 +176,14 @@ export default RetweetResult;
 // import { ReactComponentElement } from 'react';
 // import { ReactDOM } from 'react';
 // import './Result.css';
-// import logo from './asset/logo.svg';
-// import noImage from './asset/noImage.svg';
-// import backIcon from './asset/back button.png';
-// import fav from './asset/fav.png';
-// import retweet from './asset/retweets (unclick).png';
-// import search from './asset/search button.png';
-// import seen from './asset/seen (unclick).png';
-// import twitter from './asset/twitter.png';
+// import logo from './assets/logo.svg';
+// import noImage from './assets/noImage.svg';
+// import backIcon from './assets/back button.png';
+// import fav from './assets/fav.png';
+// import retweet from './assets/retweets (unclick).png';
+// import search from './assets/search button.png';
+// import seen from './assets/seen (unclick).png';
+// import twitter from './assets/twitter.png';
 // import { MdAccountCircle } from "react-icons/md";
 // import {BsTriangleFill} from "react-icons/bs"
 // // npm install react-icons --save
