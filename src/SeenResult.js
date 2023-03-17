@@ -3,13 +3,14 @@ import { ReactComponentElement } from 'react';
 import { ReactDOM } from 'react';
 import { useState } from 'react';
 import { SearchBar } from './components/SearchBar';
+import { BrowserRouter as Router, Switch, Route, Link, useNavigate, Routes} from 'react-router-dom';
 import {SearchResultsList} from './components/SearchResultsList';
 import './Result.css';
 import logo from './assets/logo.svg';
 import noImage from './assets/noImage.svg';
 import backIcon from './assets/back button.png';
 import fav from './assets/fav (unclick).png';
-import retweet from './assets/retweet (unclick).png';
+import retweets from './assets/retweets (unclick).png';
 import search from './assets/search button.png';
 import seen from './assets/seen.png';
 import twitter from './assets/twitter.png';
@@ -22,13 +23,17 @@ import { faEye } from '@fortawesome/free-solid-svg-icons';
 
 function SeenResult(){
     const [results, setResults] = useState([]);
+    const navigate = useNavigate();
+    const goback = () => {
+        navigate(-1);
+    }
     return(
         <div className='container'>
             <div className='head'>
                 <div className='header'>
-                  <img className='back-icon' src={backIcon} alt="Back Icon" width={27} height={27}/>
-                  <img className='logo' src={logo} alt="logo" width={143} height={29}/>
-                  <div className="search-bar">
+                    <img className='back-icon' src={backIcon} alt="Back Icon" width={27} height={27} onClick={goback}/>
+                    <img className='logo' src={logo} alt="logo" width={143} height={29}/>
+                    <div className="search-bar">
                         <SearchBar setResults={setResults}/>
                         {results && results.length > 0 && <SearchResultsList results={results} />}
                     </div>
@@ -45,10 +50,18 @@ function SeenResult(){
                 {/* ดึงค่าจำนวนทวิตมาใส่ตรงนี้ */}
                 <text className='quantity'>23,456 ทวีต</text>
 
+                <Link to="/SeenResult">
+                    <img className='seen-icon' src={seen} alt="The most views count icon" width={64} height={64} />
+                </Link>
 
-                <img className='seen-icon' src={seen} alt="The most views count icon" width={64} height={64}/>
-                <img className='retweet-icon' src={retweet} alt="The most views count icon" width={64} height={64}/>
-                <img className='fav-icon' src={fav} alt="The most views count icon" width={64} height={64}/>
+                <Link to="/RetweetResult">
+                    <img className='retweet-icon' src={retweets} alt="The most views count icon" width={64} height={64}/>
+                </Link>
+
+                <Link to="/FavResult">
+                    <img className='fav-icon' src={fav} alt="The most views count icon" width={64} height={64}/>
+                </Link>
+
                 <BsTriangleFill className='triangle' size={30} style={{color: "white"}}/>
               </div>
             </div>
