@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 import './SearchBar.css';
-import searchButton from '../search-button.svg'
+import searchButton from '../assets/search button.png'
 import { json, Link } from 'react-router-dom';
 
 export const SearchBar = ({setResults}) => {
@@ -40,7 +40,7 @@ export const SearchBar = ({setResults}) => {
               onChange={(e) => handleChange(e.target.value)}
               ></input>
               <div class="search_btn">
-                <img src={searchButton} alt="bubble icon" width={65} height={65}/>
+                <img src={searchButton} alt="bubble icon" width={50} height={50}/>
               </div>
             </div>
           </div>

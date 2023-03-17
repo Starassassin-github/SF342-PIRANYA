@@ -1,6 +1,9 @@
 import React from 'react';
 import { ReactComponentElement } from 'react';
 import { ReactDOM } from 'react';
+import { useState } from 'react';
+import { SearchBar } from './components/SearchBar';
+import {SearchResultsList} from './components/SearchResultsList';
 import './Result.css';
 import logo from './assets/logo.svg';
 import noImage from './assets/noImage.svg';
@@ -16,12 +19,17 @@ import {BsTriangleFill} from "react-icons/bs"
 import { BsFillHeartFill } from "react-icons/bs";
 
 function FavResult(){
+    const [results, setResults] = useState([]);
     return(
         <div className='container'>
             <div className='head'>
                 <div className='header'>
                   <img className='back-icon' src={backIcon} alt="Back Icon" width={27} height={27}/>
                   <img className='logo' src={logo} alt="logo" width={143} height={29}/>
+                  <div className="search-bar">
+                        <SearchBar setResults={setResults}/>
+                        {results && results.length > 0 && <SearchResultsList results={results} />}
+                    </div>
                 </div>
 
             <div className='header-body'>
