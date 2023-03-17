@@ -1,7 +1,11 @@
 import React from "react";
 import { useState } from 'react';
 import './SearchBar.css';
+<<<<<<< Updated upstream
 import searchButton from '../assets/search button.png'
+=======
+import searchButton from 'src\assets\search button.png';
+>>>>>>> Stashed changes
 import { json, Link } from 'react-router-dom';
 
 export const SearchBar = ({setResults}) => {
