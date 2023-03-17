@@ -22,14 +22,12 @@ import { BsFillHeartFill } from "react-icons/bs";
 function FavResult(){
     const [results, setResults] = useState([]);
     const navigate = useNavigate();
-    const goback = () => {
-        navigate(-1);
-    }
+    
     return(
         <div className='container'>
             <div className='head'>
                 <div className='header'>
-                    <img className='back-icon' src={backIcon} alt="Back Icon" width={27} height={27} onClick={goback}/>
+                    <img className='back-icon' src={backIcon} alt="Back Icon" width={27} height={27} onClick={() => navigate(-1)}/>
                     <img className='logo' src={logo} alt="logo" width={143} height={29}/>
                     <div className="search-bar">
                         <SearchBar setResults={setResults}/>
