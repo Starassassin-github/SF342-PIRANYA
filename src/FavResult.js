@@ -46,19 +46,23 @@ function FavResult(){
                 {/* ดึงค่าจำนวนทวิตมาใส่ตรงนี้ */}
                 <text className='quantity'>23,456 ทวีต</text>
 
-                <Link to="/SeenResult">
-                    <img className='seen-icon' src={seen} alt="The most views count icon" width={64} height={64} />
-                </Link>
+                <div>
+                    <Link to="/SeenResult">
+                        <img className='seen-icon' src={seen} alt="The most views count icon" width={64} height={64} />
+                    </Link>
 
-                <Link to="/RetweetResult">
-                    <img className='retweet-icon' src={retweets} alt="The most views count icon" width={64} height={64}/>
-                </Link>
+                    <Link to="/RetweetResult">
+                        <img className='retweet-icon' src={retweets} alt="The most views count icon" width={64} height={64}/>
+                    </Link>
 
-                <Link to="/FavResult">
-                    <img className='fav-icon' src={fav} alt="The most views count icon" width={64} height={64}/>
-                </Link>
-                <BsTriangleFill className='triangle' size={30} style={{color: "white"}}/>
+                    <Link to="/FavResult">
+                        <img className='fav-icon' src={fav} alt="The most views count icon" width={64} height={64}/>
+                    </Link>
+                </div>
               </div>
+              
+              <BsTriangleFill className='triangle' size={30} style={{color: "white"}}/>
+
             </div>
 
             <div className='tweet-data'>

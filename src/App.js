@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import FavResult from './FavResult';
-import Home from './Home';
+// import Home from './Home';
 import RetweetResult from './RetweetResult';
 import SeenResult from './SeenResult';
 
