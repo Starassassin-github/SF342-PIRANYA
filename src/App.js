@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import FavResult from './FavResult';
+import Home from './Home';
 import RetweetResult from './RetweetResult';
 import SeenResult from './SeenResult';
 
@@ -9,7 +10,7 @@ class App extends Component {
         return(
             <div>
                 <Routes>
-                    <Route path='/' Component={SeenResult} />
+                    <Route  exact path='/' Component={SeenResult} />
                     <Route path='/SeenResult' Component={SeenResult} />
                     <Route path='/RetweetResult' Component={RetweetResult} />
                     <Route path='/FavResult' Component={FavResult} />
