@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from 'react';
-import './SearchBar.css';
+import './SearchBar-result.css';
 import searchButton from '../assets/search button.png';
 import { json, Link } from 'react-router-dom';
 
@@ -30,8 +30,8 @@ export const SearchBar = ({setResults}) => {
     fetchData(value)
   }
     return (
-        <div class="wrapper">
-            <div className='search_box'>
+        <div class="wrapper-result">
+            <div className='search_box-result'>
               <input 
               type="text" 
               class="input_search" 
@@ -40,7 +40,9 @@ export const SearchBar = ({setResults}) => {
               onChange={(e) => handleChange(e.target.value)}
               ></input>
               <div class="search_btn">
-                <img src={searchButton} alt="bubble icon" width={50} height={50}/>
+                <Link to="/SeenResult">
+                  <img src={searchButton} alt="bubble icon" width={50} height={50}/>
+                </Link>
               </div>
             </div>
           </div>

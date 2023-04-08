@@ -1,5 +1,6 @@
 import React from 'react'
-import './SearchResultsList.css'
+// import './SearchResultsList.css'
+import '../searchItem-home/SearchResultsList.css'
 import { SearchResult } from './SearchResult'
 
 export const SearchResultsList = ({results}) => {

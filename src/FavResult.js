@@ -2,9 +2,9 @@ import React from 'react';
 import { ReactComponentElement } from 'react';
 import { ReactDOM } from 'react';
 import { useState } from 'react';
-import { SearchBar } from './components/SearchBar';
+import { SearchBar } from './components/SearchBar-result';
 import { BrowserRouter as Router, Switch, Route, Link, useNavigate, Routes} from 'react-router-dom';
-import {SearchResultsList} from './components/SearchResultsList';
+import {SearchResultsList} from './components/SearchResultsList-result';
 import './Result.css';
 import logo from './assets/logo.svg';
 import noImage from './assets/noImage.svg';
@@ -24,8 +24,8 @@ function FavResult(){
     const navigate = useNavigate();
     
     return(
-        <div className='container'>
-            <div className='head'>
+        <div className='container-result'>
+            <div className='head-result'>
                 <div className='header'>
                     <img className='back-icon' src={backIcon} alt="Back Icon" width={27} height={27} onClick={() => navigate(-1)}/>
                     <img className='logo' src={logo} alt="logo" width={143} height={29}/>

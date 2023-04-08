@@ -1,0 +1,53 @@
+@font-face {
+    font-family: poppins;
+    src: url(./fonts/Poppins-Regular.ttf);
+}
+
+@font-face {
+    font-family: prompt;
+    src: url(./fonts/Prompt-Regular.ttf);
+}
+body {
+    background-color: #fff;
+}
+
+.container-home {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: auto 2fr;
+    grid-template-areas: 
+    "logo"
+    "search-area";
+    margin: 67px 95px;
+}
+
+.logo-home {
+    grid-area: logo;
+    margin-bottom: 50px;
+    
+}
+
+.main-area {
+    grid-area: search-area;
+    text-align: center;
+    margin-top: 50px;
+    /* display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas: 
+    "bubble bubble"
+    "search-box search-button"; */
+}
+
+.search-bar-home {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.wrapper-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

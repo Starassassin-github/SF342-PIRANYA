@@ -2,12 +2,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 120px;
-    margin-top: -17px;
 }
 
 .search_box {
-    position: absolute;
+    position: relative;
     padding: 15px;
     border-radius: 50px;
     display: flex;
@@ -37,8 +35,8 @@
     justify-content: center;
     align-items: center;
     color: #fff;
-    margin-left: 20px;
-    margin-top: 2px;
+    margin-left: 30px;
+    margin-top: 9px;
     cursor: pointer;
 }
 
@@ -54,7 +52,7 @@
     color:rgba(20, 23, 26, 1);
     padding: 15px 30px;
     width:  800px;
-    height: 20px;
+    height: 38px;
     border-radius: 50px;
 }
 
