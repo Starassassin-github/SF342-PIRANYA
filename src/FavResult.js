@@ -18,10 +18,26 @@ import { MdAccountCircle } from "react-icons/md";
 import {BsTriangleFill} from "react-icons/bs"
 // npm install react-icons --save
 import { BsFillHeartFill } from "react-icons/bs";
+import { useEffect } from 'react';
+import axios from "axios";
+
 
 function FavResult(){
     const [results, setResults] = useState([]);
+    const [favResultData, setFavResultdata] = useState([]);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        getFavResult()
+    }, []);
+
+    const getFavResult = async () => {
+            console.log("test");
+            const response = await  axios.get('http://localhost:4000/api/test');
+            console.log(response.data);
+            setFavResultdata(response.data.user);
+
+    }
     
     return(
         <div className='container-result'>
@@ -38,13 +54,14 @@ function FavResult(){
             <div className='header-body'>
                 <text className='keyword-title'>คีย์เวิร์ด :</text>
                 {/* ดึงคำจาก keyword มาเปลี่ยนตรงนี้ */}
-                <text className='keyword'>ไก่ทอด</text>
+                <text className='keyword'>{favResultData[0]}</text>
+                
 
                 <img className='twitter' src={twitter} alt="Twitter Icon" width={30} height={30}/>
                 <text className='q-name'>จำนวนทวีตทั้งหมดที่เกี่ยวข้อง</text>
 
                 {/* ดึงค่าจำนวนทวิตมาใส่ตรงนี้ */}
-                <text className='quantity'>23,456 ทวีต</text>
+                <text className='quantity'>{favResultData[2]} ทวีต</text>
 
                 <div>
                     <Link to="/SeenResult">
@@ -71,26 +88,26 @@ function FavResult(){
                     {/* ดึงจำนวนครั้งที่เห็นมากที่สุด */}
                     <text className='tweet-data-bar'>|</text>
                     <BsFillHeartFill style={{color: "#00acee", opacity:0.7}}/>
-                    <text className='tweet-data-count'>456,789 ครั้ง</text>
+                    <text className='tweet-data-count'>{favResultData[4]} ครั้ง</text>
                 </div>
 
                 <div className='tweet-data-user'> 
                     {/* รูปภาพ + ชื่อ + tag user account */}
-                    <div className='user-icon'>
-                        <MdAccountCircle size={64}/>
-                    </div>
+                      <div className='user-icon'>
+                        <MdAccountCircle size={65}/> 
+                    </div> 
 
                     <div className='user-info'>
-                        <text className='username'>ท่านผู้พัน</text>
-                        <text className='user-tag'>@FRYCHICK_LOVER</text>
+                        <text className='username'>My Account</text>
+                        <text className='user-tag'>{favResultData[1]}</text>
                     </div>
                 </div>
 
                 {/* content twitter */}
-                <div className='tweet-content'>
-                    <text className='tweet-text'>ไก่ตัวแม่โดนทอด</text>
-                    <img className='tweet-image' src={noImage} alt="image" width={600} height={600}/>
-                </div>
+                {/* <div className='tweet-content'> */}
+                    {/* <text className='tweet-text'>ไก่ตัวแม่โดนทอด</text>
+                    <img className='tweet-image' src={noImage} alt="image" width={600} height={600}/> */}
+                {/* </div> */}
             </div>
 
         </div>

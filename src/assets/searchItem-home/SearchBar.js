@@ -5,7 +5,7 @@ import '../searchItem-home/SearchBar.css'
 import searchButton from '../search-button.svg'
 import { json, Link } from 'react-router-dom';
 
-export const SearchBar = ({setResults}) => {
+export const SearchBar = ({setResults,res}) => {
   
   {/* search list testing */}
   const [input, setInput] = useState("")
@@ -48,4 +48,6 @@ export const SearchBar = ({setResults}) => {
             </div>
           </div>
     )
+
+  // res.send({value})
 }

@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const { ApifyClient } = require("apify-client");
 
+
 const client = new ApifyClient({
   token: 'apify_api_8RkcYd9uhduQWS8WmhNqnZtzcZCqaF3iIhGm',
 });
@@ -34,7 +35,9 @@ router.get('/near-me', async (req, res, next) => {
   }
 })
 
+
 router.get('/test', async (req, res, next) => {
+  let user = [];
   try {
     const input = {
       "searchTerms": [
@@ -60,23 +63,32 @@ router.get('/test', async (req, res, next) => {
       "maxRequestRetries": 6,
       "maxIdleTimeoutSecs": 60
     };
+    let searchTerms = input.searchTerms;
+    user.push(searchTerms); 
+    let handle = input.handle;
+    user.push(handle); //เก็บชื่อผู้ใช้ส่งไปให้ font
     const run = await client.actor("quacker/twitter-scraper").call(input);
 
     // Fetch and print actor results from the run's dataset (if any)
     console.log('Results from dataset');
     const { items } = await client.dataset(run.defaultDatasetId).listItems();
+
     items.forEach((item) => {
-        console.dir(item['view_count']); //value
-        console.dir(item['retweet_count']); 
-        console.dir(item['favorite_count']);
-        console.dir(item['reply_count'])
+        user.push(item['view_count']); 
+        user.push(item['retweet_count']);
+        user.push(item['favorite_count']);
+        user.push(item['reply_count']);
     });
-    res.send(items)
+    console.log("Successfully");
+    //console.log(user);
+    // console.log(user); //logข้อมูลออกมาดูว่าเก็บครบไหม
+    res.send({items , user})
   } catch (error) {
     console.log(error.message)
     next(error)
   }
 })
+
 
 async function scrapeTwitter(searchTerm) {
   const browser = await puppeteer.launch({ headless: true });
@@ -110,6 +122,9 @@ async function scrapeTwitter(searchTerm) {
   await browser.close();
   return tweets;
 }
-module.exports = router
 
- 
+
+module.exports = router;
+
+
+
