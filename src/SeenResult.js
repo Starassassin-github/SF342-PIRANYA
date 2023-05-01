@@ -22,10 +22,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import axios from "axios";
+//import input from './assets/searchItem-home/SearchBar';
+// import {useParams } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 
 function SeenResult(){
+    // function SeenResult(props){
     const [results, setResults] = useState([]);
     const [favResultData, setFavResultdata] = useState([]);
+    // const location = useLocation();
+    // const data = location.state;
+    // console.log(data);
+    // let { input } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -34,6 +42,7 @@ function SeenResult(){
 
     const getFavResult = async () => {
             console.log("test");
+            // const response = await  axios.get('http://localhost:4000/api/test',{params: {data}});
             const response = await  axios.get('http://localhost:4000/api/test');
             console.log(response.data);
             setFavResultdata(response.data.user);
@@ -61,7 +70,7 @@ function SeenResult(){
                 <text className='q-name'>จำนวนทวีตทั้งหมดที่เกี่ยวข้อง</text>
 
                 {/* ดึงค่าจำนวนทวิตมาใส่ตรงนี้ */}
-                <text className='quantity'>{favResultData[2]} ทวีต</text>
+                <text className='quantity'>{favResultData[3]} ทวีต</text>
 
                 <div>
                     <Link to="/SeenResult">
@@ -87,7 +96,7 @@ function SeenResult(){
                     {/* ดึงจำนวนครั้งที่เห็นมากที่สุด */}
                     <text className='tweet-data-bar'>|</text>
                     <FontAwesomeIcon icon={faEye} style={{color: "#00acee", opacity:0.7}}/>
-                    <text className='tweet-data-count'>{favResultData[5]} ครั้ง</text>
+                    <text className='tweet-data-count'>{favResultData[6]} ครั้ง</text>
                 </div>
 
                 <div className='tweet-data-user'> 
@@ -97,8 +106,8 @@ function SeenResult(){
                     </div> 
 
                     <div className='user-info'>
-                        <text className='username'>My Account</text>
-                        <text className='user-tag'>{favResultData[1]}</text>
+                        <text className='username'>{favResultData[1]}</text>
+                        <text className='user-tag'>{favResultData[2]}</text>
                     </div>
                 </div>
 

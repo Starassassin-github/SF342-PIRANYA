@@ -2,6 +2,7 @@ const router = require('express').Router()
 const { ApifyClient } = require("apify-client");
 
 
+
 const client = new ApifyClient({
   token: 'apify_api_8RkcYd9uhduQWS8WmhNqnZtzcZCqaF3iIhGm',
 });
@@ -23,7 +24,7 @@ router.get('/trends', async (req, res, next) => {
 // This route gets the WOEID for a particular location (lat/long)
 router.get('/near-me', async (req, res, next) => {
   try {
-    const { lat, long } = req.query
+    // const { lat, long } = req.query
     const response = await client.get('/trends/closest.json', {
       lat,
       long,
@@ -37,6 +38,7 @@ router.get('/near-me', async (req, res, next) => {
 
 
 router.get('/test', async (req, res, next) => {
+  // const id = req.query.data
   let user = [];
   try {
     const input = {
@@ -58,6 +60,9 @@ router.get('/test', async (req, res, next) => {
       "handle": [
         "@NBA"
       ],
+      "acount": [
+        "NBA"
+      ],
       "customData": {},
       "handlePageTimeoutSecs": 500,
       "maxRequestRetries": 6,
@@ -65,8 +70,10 @@ router.get('/test', async (req, res, next) => {
     };
     let searchTerms = input.searchTerms;
     user.push(searchTerms); 
+    let account = input.acount;
+    user.push(account); 
     let handle = input.handle;
-    user.push(handle); //เก็บชื่อผู้ใช้ส่งไปให้ font
+    user.push(handle); 
     const run = await client.actor("quacker/twitter-scraper").call(input);
 
     // Fetch and print actor results from the run's dataset (if any)
@@ -80,8 +87,7 @@ router.get('/test', async (req, res, next) => {
         user.push(item['reply_count']);
     });
     console.log("Successfully");
-    //console.log(user);
-    // console.log(user); //logข้อมูลออกมาดูว่าเก็บครบไหม
+    console.log(user); //logข้อมูลออกมาดูว่าเก็บครบไหม
     res.send({items , user})
   } catch (error) {
     console.log(error.message)

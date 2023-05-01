@@ -61,7 +61,7 @@ function FavResult(){
                 <text className='q-name'>จำนวนทวีตทั้งหมดที่เกี่ยวข้อง</text>
 
                 {/* ดึงค่าจำนวนทวิตมาใส่ตรงนี้ */}
-                <text className='quantity'>{favResultData[2]} ทวีต</text>
+                <text className='quantity'>{favResultData[3]} ทวีต</text>
 
                 <div>
                     <Link to="/SeenResult">
@@ -88,7 +88,7 @@ function FavResult(){
                     {/* ดึงจำนวนครั้งที่เห็นมากที่สุด */}
                     <text className='tweet-data-bar'>|</text>
                     <BsFillHeartFill style={{color: "#00acee", opacity:0.7}}/>
-                    <text className='tweet-data-count'>{favResultData[4]} ครั้ง</text>
+                    <text className='tweet-data-count'>{favResultData[5]} ครั้ง</text>
                 </div>
 
                 <div className='tweet-data-user'> 
@@ -98,8 +98,8 @@ function FavResult(){
                     </div> 
 
                     <div className='user-info'>
-                        <text className='username'>My Account</text>
-                        <text className='user-tag'>{favResultData[1]}</text>
+                        <text className='username'>{favResultData[1]}</text>
+                        <text className='user-tag'>{favResultData[2]}</text>
                     </div>
                 </div>
 

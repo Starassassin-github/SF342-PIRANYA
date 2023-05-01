@@ -26,6 +26,8 @@ import { useEffect } from 'react';
 import axios from "axios";
 
 
+
+
 function RetweetResult(){
     const [results, setResults] = useState([]);
     const [favResultData, setFavResultdata] = useState([]);
@@ -36,7 +38,7 @@ function RetweetResult(){
     }, []);
 
     const getFavResult = async () => {
-            // console.log("test");
+            console.log("test");
             const response = await  axios.get('http://localhost:4000/api/test');
             //console.log(response.data);
             setFavResultdata(response.data.user);
@@ -64,7 +66,7 @@ function RetweetResult(){
                     <text className='q-name'>จำนวนทวีตทั้งหมดที่เกี่ยวข้อง</text>
 
                     {/* ดึงค่าจำนวนทวิตมาใส่ตรงนี้ */}
-                    <text className='quantity'>{favResultData[2]} ทวีต</text>
+                    <text className='quantity'>{favResultData[3]} ทวีต</text>
 
                     <div>
                         <Link to="/SeenResult">
@@ -91,7 +93,7 @@ function RetweetResult(){
                         {/* ดึงจำนวนครั้งที่เห็นมากที่สุด */}
                         <text className='tweet-data-bar'>|</text>
                         <FaRetweet style={{color: "#00acee", opacity:0.7}}/>
-                        <text className='tweet-data-count'>{favResultData[3]} ครั้ง</text>
+                        <text className='tweet-data-count'>{favResultData[4]} ครั้ง</text>
                     </div>
 
                     <div className='tweet-data-user'> 
@@ -101,8 +103,8 @@ function RetweetResult(){
                     </div> 
 
                     <div className='user-info'>
-                        <text className='username'>My Account</text>
-                        <text className='user-tag'>{favResultData[1]}</text>
+                        <text className='username'>{favResultData[1]}</text>
+                        <text className='user-tag'>{favResultData[2]}</text>
                     </div>
                 </div>
 
