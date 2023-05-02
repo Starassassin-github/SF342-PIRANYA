@@ -36,7 +36,7 @@ router.get('/near-me', async (req, res, next) => {
   }
 })
 
-
+// จะเห็นก่อน ถ้า พิมพ์ test
 router.get('/test', async (req, res, next) => {
   // const id = req.query.data
   let user = [];
@@ -58,10 +58,69 @@ router.get('/test', async (req, res, next) => {
       "extendScraperFunction": async ({ page, request, addSearch, addProfile, _, addThread, addEvent, customData, Apify, signal, label }) => {
       },
       "handle": [
-        "@NBA"
+        `@NBA`
       ],
       "acount": [
         "NBA"
+      ],
+      "customData": {},
+      "handlePageTimeoutSecs": 500,
+      "maxRequestRetries": 6,
+      "maxIdleTimeoutSecs": 60
+    };
+    let searchTerms = input.searchTerms;
+    user.push(searchTerms); 
+    let account = input.acount;
+    user.push(account); 
+    let handle = input.handle;
+    user.push(handle); 
+    const run = await client.actor("quacker/twitter-scraper").call(input);
+
+    // Fetch and print actor results from the run's dataset (if any)
+    console.log('Results from dataset');
+    const { items } = await client.dataset(run.defaultDatasetId).listItems();
+
+    items.forEach((item) => {
+        user.push(item['view_count']); 
+        user.push(item['retweet_count']);
+        user.push(item['favorite_count']);
+        user.push(item['reply_count']);
+    });
+    console.log("Successfully");
+    console.log(user); //logข้อมูลออกมาดูว่าเก็บครบไหม
+    res.send({items , user})
+  } catch (error) {
+    console.log(error.message)
+    next(error)
+  }
+})
+
+router.get('/:data', async (req, res, next) => {
+  const data = req.params.data
+  console.log(data);
+  let user = [];
+  try {
+    const input = {
+      "searchTerms": [
+        `${data}`
+      ],
+      "searchMode": "top",
+      "profilesDesired": 1,
+      "tweetsDesired": 1,
+      "mode": "replies",
+      "proxyConfig": {
+          "useApifyProxy": true
+      },
+      "extendOutputFunction": async ({ data, item, page, request, customData, Apify }) => {
+        return item;
+      },
+      "extendScraperFunction": async ({ page, request, addSearch, addProfile, _, addThread, addEvent, customData, Apify, signal, label }) => {
+      },
+      "handle": [
+        `@${data}`
+      ],
+      "acount": [
+        `${data}`
       ],
       "customData": {},
       "handlePageTimeoutSecs": 500,

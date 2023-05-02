@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactComponentElement } from 'react';
 import { ReactDOM } from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { SearchBar } from './components/SearchBar-result';
 import { BrowserRouter as Router, Switch, Route, Link, useNavigate, Routes} from 'react-router-dom';
 import {SearchResultsList} from './components/SearchResultsList-result';
@@ -22,18 +22,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from '@fortawesome/free-solid-svg-icons';
 import { useEffect } from 'react';
 import axios from "axios";
+
 //import input from './assets/searchItem-home/SearchBar';
 // import {useParams } from 'react-router-dom';
 // import { useLocation } from 'react-router-dom';
 
-function SeenResult(){
+// Context
+import DataGlobal from './store/DataGlobal';
+
+function SeenResult(props){
     // function SeenResult(props){
+
+    const context = useContext(DataGlobal)
+
     const [results, setResults] = useState([]);
     const [favResultData, setFavResultdata] = useState([]);
-    // const location = useLocation();
-    // const data = location.state;
-    // console.log(data);
-    // let { input } = useParams();
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -41,12 +44,7 @@ function SeenResult(){
     }, []);
 
     const getFavResult = async () => {
-            console.log("test");
-            // const response = await  axios.get('http://localhost:4000/api/test',{params: {data}});
-            const response = await  axios.get('http://localhost:4000/api/test');
-            console.log(response.data);
-            setFavResultdata(response.data.user);
-
+            setFavResultdata(context.stateData.dataQuery.user);
     }
    
     return(

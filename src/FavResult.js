@@ -1,7 +1,7 @@
 import React from 'react';
 import { ReactComponentElement } from 'react';
 import { ReactDOM } from 'react';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { SearchBar } from './components/SearchBar-result';
 import { BrowserRouter as Router, Switch, Route, Link, useNavigate, Routes} from 'react-router-dom';
 import {SearchResultsList} from './components/SearchResultsList-result';
@@ -21,8 +21,13 @@ import { BsFillHeartFill } from "react-icons/bs";
 import { useEffect } from 'react';
 import axios from "axios";
 
+// Context
+import DataGlobal from './store/DataGlobal';
 
 function FavResult(){
+    
+    const context = useContext(DataGlobal)
+
     const [results, setResults] = useState([]);
     const [favResultData, setFavResultdata] = useState([]);
     const navigate = useNavigate();
@@ -32,11 +37,7 @@ function FavResult(){
     }, []);
 
     const getFavResult = async () => {
-            console.log("test");
-            const response = await  axios.get('http://localhost:4000/api/test');
-            console.log(response.data);
-            setFavResultdata(response.data.user);
-
+            setFavResultdata(context.stateData.dataQuery.user);
     }
     
     return(
